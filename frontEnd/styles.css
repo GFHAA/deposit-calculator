@@ -1,0 +1,298 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: rgb(244, 245, 248);
+    font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+
+    .container-sm,
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .container-md,
+    .container-sm,
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .container-xl,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1400px) {
+
+    .container-xxl,
+    .container-xl,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container {
+        max-width: 1320px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .box {
+        display: block !important;
+    }
+}
+
+.container {
+    padding: 20px 0;
+}
+
+.fields {
+    flex: 1 1 auto;
+    width: 100%;
+}
+
+.result {
+    flex: 1 1 auto;
+    width: 100%;
+}
+
+.field {
+    font-size: 20px;
+}
+
+.field .checkbox {
+    height: 50px;
+
+}
+
+.field .text {
+    font-size: 25px;
+    height: 30px;
+    color: rgb(33, 33, 33);
+    border-top: 1px solid rgb(214, 217, 224);
+    border-bottom: 1px solid rgb(214, 217, 224);
+    border-left: 1px solid rgb(214, 217, 224);
+    border-right: 1px solid rgb(214, 217, 224);
+    outline: none;
+    width: 85%;
+    padding: 24px 5px 8px 16px;
+    border-radius: 5em;
+}
+
+.field {
+    position: relative;
+    width: 100%;
+    border-radius: 5em;
+}
+
+.box {
+    border-radius: 1.5em;
+    padding: 50px;
+    background: #fff;
+    display: flex;
+}
+
+.field:focus {
+    border-color: rgb(3, 155, 229);
+}
+
+.field .text:hover,
+.field .text:checked {
+    transition: color 0.2s ease-out 0s, border-color 0.2s ease-out 0s;
+    border-top: 1px solid rgb(3, 155, 229);
+    border-bottom: 1px solid rgb(3, 155, 229);
+    border-left: 1px solid rgb(3, 155, 229);
+    border-right: 1px solid rgb(3, 155, 229);
+}
+
+.field-not-first {
+    margin-top: 16px;
+}
+
+.none {
+    display: none;
+}
+
+.label-field {
+    font-size: 13px;
+    line-height: 16px;
+    top: 8px;
+    transform: none;
+    position: absolute;
+    left: 0px;
+    color: rgb(104, 112, 130);
+    position: absolute;
+    left: 0px;
+    padding: 0px 16px;
+    box-sizing: border-box;
+    pointer-events: none;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 1;
+}
+
+.field span {
+    padding-left: 10px;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.field .checkbox {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+
+.checkbox-label {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.checkbox-label {
+    padding-top: 20px;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.field-select {
+    border-radius: 1em;
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 20px;
+    outline: none;
+    border-top: 1px solid rgb(214, 217, 224);
+    border-bottom: 1px solid rgb(214, 217, 224);
+    border-left: 1px solid rgb(214, 217, 224);
+    border-right: 1px solid rgb(214, 217, 224);
+    height: 50px;
+    width: 70%;
+}
+
+.field-select option {
+    font-size: 20px;
+}
+
+.field-checkbox {
+    padding-left: 5px;
+}
+
+h2 {
+    font-size: 165%;
+}
+
+.result {
+    padding: 15px 0px 15px 0px;
+    border-radius: 1em;
+    background-color: rgb(244, 245, 248);
+}
+.result h2{
+    padding-left: 15px;
+}
+.digits {
+    padding: 10px;
+    font-size: 110%;
+}
+
+.grid {
+    padding: 10px 0 10px 14px;
+    position: relative;
+    justify-content: space-between;
+    display: flex;
+}
+
+.digits-result {
+    font-weight: bold;
+}
+
+.summ::before {
+    position: absolute;
+    display: block;
+    content: "";
+    top: calc(50% - 6px);
+    left: 0px;
+    width: 12px;
+    height: 12px;
+    border-radius: 4px;
+    background-color: rgb(255, 152, 0);
+}
+
+.income::before {
+    position: absolute;
+    display: block;
+    content: "";
+    top: calc(50% - 6px);
+    left: 0px;
+    width: 12px;
+    height: 12px;
+    border-radius: 4px;
+    background-color: rgb(37, 187, 62);
+}
+
+.total {
+    padding-left: 0px;
+}
+
+.progres-bar {
+    display: flex;
+    height: 10px;
+}
+
+.progres-total {
+    background-color: rgb(255, 152, 0);
+    width: 90.9%;
+    height: 100%;
+}
+
+.progres-income {
+    height: 100%;
+    background-color: rgb(37, 187, 62);
+    width: 9.1%;
+}
