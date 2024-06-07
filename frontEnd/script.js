@@ -1,7 +1,7 @@
 const summPrev = document.querySelector("#summPrev") 
 const timePrev = document.querySelector("#timePrev") 
 const ratePrev = document.querySelector("#ratePrev")
-
+const selectPrev = document.querySelector("#fieldSelect")
 function sendData(data){
     if(data.summ != "" && !isNaN(data.summ) && data.time !== "" && !isNaN(data.time) && data.rate !== "" && !isNaN(data.rate)){
         console.log(data.summ !== NaN)
@@ -25,4 +25,7 @@ timePrev.addEventListener("input", (e) =>{
 ratePrev.addEventListener("input", (e) =>{
     temp.rate = Number(ratePrev.value)
     sendData(temp)
+})
+selectPrev.addEventListener("change", (e) =>{
+    temp.capitalise = selectPrev.value
 })
