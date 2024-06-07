@@ -28,4 +28,5 @@ ratePrev.addEventListener("input", (e) =>{
 })
 selectPrev.addEventListener("change", (e) =>{
     temp.capitalise = selectPrev.value
+    sendData(temp)
 })
