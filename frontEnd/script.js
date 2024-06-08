@@ -26,12 +26,11 @@ async function editData() {
     const profit = response.profit
     const effective_rate = response.effective_rate
     const total = income + temp.summ
-
     document.querySelector("#summ").innerHTML  = `${temp.summ}`
     document.querySelector("#income").innerHTML = `${income}`
-    document.querySelector("#total").innerHTML = `${total}`
-    document.querySelector("#effective-rate").innerHTML = `${effective_rate*100}`
-    document.querySelector("#profit").innerHTML = `${profit*100}`
+    document.querySelector("#total").innerHTML = `${total.toFixed(2)}`
+    document.querySelector("#effective-rate").innerHTML = `${effective_rate}`
+    document.querySelector("#profit").innerHTML = `${profit}`
     document.querySelector("#progres-total").style.width = `${temp.summ/total*100}%`
     document.querySelector("#progres-income").style.width = `${100 - temp.summ/total*100}%`
 }

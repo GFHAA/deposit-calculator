@@ -22,8 +22,8 @@ def get_digits():
 
     response = {
         "income": round(total - summ, 3),
-        "effective_rate": round(effective_rate, 4),
-        "profit": round(round(total, 2)/summ - 1, 4)
+        "effective_rate": round(effective_rate*100, 2),
+        "profit": round((round(total, 2)/summ - 1)*100, 2)
     }
     return response
 
