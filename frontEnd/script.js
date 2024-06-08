@@ -1,11 +1,19 @@
-const summPrev = document.querySelector("#summPrev") 
-const timePrev = document.querySelector("#timePrev") 
+const summPrev = document.querySelector("#summPrev")
+const timePrev = document.querySelector("#timePrev")
 const ratePrev = document.querySelector("#ratePrev")
 const selectPrev = document.querySelector("#fieldSelect")
 const checkBox = document.querySelector("#checkbox")
-function sendData(data){
-    if(data.summ != "" && !isNaN(data.summ) && data.time !== "" && !isNaN(data.time) && data.rate !== "" && !isNaN(data.rate)){
-        console.log(data)
+function sendData(data) {
+    if (data.summ != "" && !isNaN(data.summ) && data.time !== "" && !isNaN(data.time) && data.rate !== "" && !isNaN(data.rate)) {
+        fetch("http://127.0.0.1:5000/digits", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(r => r.json())
+            .then(r => console.log(r))
     }
 }
 
@@ -15,30 +23,29 @@ let temp = {
     rate: 10,
     capitalise: 0
 }
-summPrev.addEventListener("input", (e) =>{
+summPrev.addEventListener("input", (e) => {
     temp.summ = Number(summPrev.value)
     sendData(temp)
 })
-timePrev.addEventListener("input", (e) =>{
+timePrev.addEventListener("input", (e) => {
     temp.time = Number(timePrev.value)
     sendData(temp)
 })
-ratePrev.addEventListener("input", (e) =>{
+ratePrev.addEventListener("input", (e) => {
     temp.rate = Number(ratePrev.value)
     sendData(temp)
 })
-checkBox.addEventListener("change", (e)=>{
-    console.log(checkBox.checked)
-    if(checkBox.checked){
+checkBox.addEventListener("change", (e) => {
+    if (checkBox.checked) {
         temp.capitalise = Number(selectPrev.value)
         sendData(temp)
     }
-    else{
+    else {
         temp.capitalise = 0
         sendData(temp)
     }
 })
-selectPrev.addEventListener("change", (e) =>{
+selectPrev.addEventListener("change", (e) => {
     temp.capitalise = Number(selectPrev.value)
     sendData(temp)
 })
