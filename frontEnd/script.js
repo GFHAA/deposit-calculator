@@ -3,18 +3,37 @@ const timePrev = document.querySelector("#timePrev")
 const ratePrev = document.querySelector("#ratePrev")
 const selectPrev = document.querySelector("#fieldSelect")
 const checkBox = document.querySelector("#checkbox")
-function sendData(data) {
+
+
+
+async function sendData(data) {
     if (data.summ != "" && !isNaN(data.summ) && data.time !== "" && !isNaN(data.time) && data.rate !== "" && !isNaN(data.rate)) {
-        fetch("http://127.0.0.1:5000/digits", {
+        const response = await fetch("http://127.0.0.1:5000/digits", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         })
-            .then(r => r.json())
-            .then(r => console.log(r))
+        re = response.json()
+        return re
     }
+}
+
+async function editData() {
+    const response = await sendData(temp)
+    const income = response.income
+    const profit = response.profit
+    const effective_rate = response.effective_rate
+    const total = income + temp.summ
+
+    document.querySelector("#summ").innerHTML  = `${temp.summ}`
+    document.querySelector("#income").innerHTML = `${income}`
+    document.querySelector("#total").innerHTML = `${total}`
+    document.querySelector("#effective-rate").innerHTML = `${effective_rate*100}`
+    document.querySelector("#profit").innerHTML = `${profit*100}`
+    document.querySelector("#progres-total").style.width = `${temp.summ/total*100}%`
+    document.querySelector("#progres-income").style.width = `${100 - temp.summ/total*100}%`
 }
 
 let temp = {
@@ -25,27 +44,29 @@ let temp = {
 }
 summPrev.addEventListener("input", (e) => {
     temp.summ = Number(summPrev.value)
-    sendData(temp)
+    editData()
 })
+
 timePrev.addEventListener("input", (e) => {
     temp.time = Number(timePrev.value)
-    sendData(temp)
+    editData()
 })
 ratePrev.addEventListener("input", (e) => {
     temp.rate = Number(ratePrev.value)
-    sendData(temp)
+    editData()
 })
+
 checkBox.addEventListener("change", (e) => {
     if (checkBox.checked) {
         temp.capitalise = Number(selectPrev.value)
-        sendData(temp)
+        editData()
     }
     else {
         temp.capitalise = 0
-        sendData(temp)
+        editData()
     }
 })
-selectPrev.addEventListener("change", (e) => {
+selectPrev.addEventListener("change", async (e) => {
     temp.capitalise = Number(selectPrev.value)
-    sendData(temp)
+    editData()
 })

@@ -18,12 +18,12 @@ def get_digits():
     time = time/365
 
     total = summ * (1 + rate/capitalise)**(capitalise*time)
-    rate_effective = (1 + rate/capitalise)**capitalise - 1
+    effective_rate = (1 + rate/capitalise)**capitalise - 1
 
     response = {
-        "income": round(total, 4),
-        "rate_effective": round(rate_effective, 4),
-        "profit": round( round(total, 2)/summ - 1, 4)
+        "income": round(total - summ, 3),
+        "effective_rate": round(effective_rate, 4),
+        "profit": round(round(total, 2)/summ - 1, 4)
     }
     return response
 
